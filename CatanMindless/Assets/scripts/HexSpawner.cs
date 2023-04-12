@@ -5,7 +5,8 @@ using UnityEngine;
 public class HexSpawner : MonoBehaviour
 {
     public GameObject HexUISpawnerPreFab;
-    public GameObject Hex;
+    public GameObject HexBase;
+    public GameObject HexPlain;
     private void Update()
     {
         if (Input.GetKeyUp(KeyCode.Return)) //ACCEPT AND PRINT ARRAY
@@ -28,7 +29,14 @@ public class HexSpawner : MonoBehaviour
             {
                 if (selectedHexes[t])
                 {
-                    GameObject newHexUI = Instantiate(Hex, hexUISpawnDuplicateLocation, transform.rotation);
+                    if(j == 0)
+                    {
+                        GameObject newHexUI = Instantiate(HexBase, hexUISpawnDuplicateLocation, transform.rotation);
+                    }
+                    else
+                    {
+                        GameObject newHexUI = Instantiate(HexPlain, hexUISpawnDuplicateLocation, transform.rotation);
+                    }
                 }
 
                 hexUISpawnDuplicateLocation += new Vector2(0, hexHeight);
@@ -37,7 +45,7 @@ public class HexSpawner : MonoBehaviour
 
             hexUISpawnDuplicateLocation += new Vector2(hexWidth, .28f - (hexHeight * columns));
 
-            if (i % 2 == 0)
+            if (!(i % 2 == 0))
             {
                 hexUISpawnDuplicateLocation += new Vector2(0, -hexHeight);
             }
