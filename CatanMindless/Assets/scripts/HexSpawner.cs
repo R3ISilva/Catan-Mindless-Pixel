@@ -15,7 +15,7 @@ public class HexSpawner : MonoBehaviour
         }
         
     }
-
+    
     float hexHeight = .5f;
     float hexWidth = .63f;
     void SpawnDuplicate(List<bool> selectedHexes, int rows, int columns)
