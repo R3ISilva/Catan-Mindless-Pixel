@@ -7,6 +7,7 @@ public class HexSpawner : MonoBehaviour
     public GameObject HexUISpawnerPreFab;
     public GameObject HexBase;
     public GameObject HexPlain;
+
     private void Update()
     {
         if (Input.GetKeyUp(KeyCode.Return)) //ACCEPT AND PRINT ARRAY
@@ -21,33 +22,27 @@ public class HexSpawner : MonoBehaviour
     float hexWidth = .63f;
     void SpawnDuplicate(List<bool> selectedHexes, int rows, int columns)
     {
-        Vector2 hexUISpawnDuplicateLocation = transform.position;
-        int t = 0;
-        for (int i = 0; i < rows; i++)
+        Vector2 hexSpawnDuplicateLocation = transform.position;
+        for (int row = 0; row < rows; row++)
         {
-            for (int j = 0; j < columns; j++)
+            
+            for (int column = 0; column < columns; column++)
             {
-                if (selectedHexes[t])
+                int x = row * columns + column;
+                if (selectedHexes[x])
                 {
-                    if(j == 0)
-                    {
-                        GameObject newHexUI = Instantiate(HexBase, hexUISpawnDuplicateLocation, transform.rotation);
-                    }
-                    else
-                    {
-                        GameObject newHexUI = Instantiate(HexPlain, hexUISpawnDuplicateLocation, transform.rotation);
-                    }
+                    GameObject newHex = Instantiate(HexBase, hexSpawnDuplicateLocation, transform.rotation);
+                    newHex.GetComponent<LogicHex>().ConstructHex(selectedHexes, x, row, column, rows, columns);
                 }
 
-                hexUISpawnDuplicateLocation += new Vector2(0, hexHeight);
-                t++;
+                hexSpawnDuplicateLocation += new Vector2(0, hexHeight);
             }
 
-            hexUISpawnDuplicateLocation += new Vector2(hexWidth, .28f - (hexHeight * columns));
+            hexSpawnDuplicateLocation += new Vector2(hexWidth, .28f - (hexHeight * columns));
 
-            if (!(i % 2 == 0))
+            if (!(row % 2 == 0))
             {
-                hexUISpawnDuplicateLocation += new Vector2(0, -hexHeight);
+                hexSpawnDuplicateLocation += new Vector2(0, -hexHeight);
             }
         }
 

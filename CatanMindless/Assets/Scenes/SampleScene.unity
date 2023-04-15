@@ -341,6 +341,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6448256655030175737, guid: aa7ae5862a96c344295b2b606fba74a2, type: 3}
     - target: {fileID: 5460504694981248542, guid: 03c791887e8390444b6c552965979621, type: 3}
+      propertyPath: HexBase
+      value: 
+      objectReference: {fileID: 7234637444496084613, guid: c95de3cea5192b247b475c6077c65150, type: 3}
+    - target: {fileID: 5460504694981248542, guid: 03c791887e8390444b6c552965979621, type: 3}
+      propertyPath: HexPlain
+      value: 
+      objectReference: {fileID: 7234637444496084613, guid: 4c091c987302a5a44b5f7d95f3534a15, type: 3}
+    - target: {fileID: 5460504694981248542, guid: 03c791887e8390444b6c552965979621, type: 3}
       propertyPath: HexUISpawner
       value: 
       objectReference: {fileID: 880768737}
