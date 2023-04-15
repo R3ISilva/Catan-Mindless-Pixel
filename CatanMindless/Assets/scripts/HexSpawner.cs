@@ -19,7 +19,7 @@ public class HexSpawner : MonoBehaviour
     }
     
     float hexHeight = .5f;
-    float hexWidth = .63f;
+    float hexWidth = .64f;
     void SpawnDuplicate(List<bool> selectedHexes, int rows, int columns)
     {
         Vector2 hexSpawnDuplicateLocation = transform.position;
@@ -38,7 +38,7 @@ public class HexSpawner : MonoBehaviour
                 hexSpawnDuplicateLocation += new Vector2(0, hexHeight);
             }
 
-            hexSpawnDuplicateLocation += new Vector2(hexWidth, .28f - (hexHeight * columns));
+            hexSpawnDuplicateLocation += new Vector2(hexWidth, .25f - (hexHeight * columns));
 
             if (!(row % 2 == 0))
             {

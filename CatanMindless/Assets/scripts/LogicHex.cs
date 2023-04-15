@@ -5,18 +5,18 @@ using UnityEngine;
 
 public class LogicHex : MonoBehaviour
 {
-    public Sprite HexPlain;
-    public Sprite HexFront;
-    public Sprite HexRight;
-    public Sprite HexLeft;
+    public Sprite HexPlain,HexFront, HexRight, HexLeft;
 
-    private SpriteRenderer spriteRenderer;
+
+    private SpriteRenderer spriteRendererPlain, spriteRendererFront, spriteRendererRight, spriteRendererLeft;
    
     // Called when spawned
     public void ConstructHex(List<bool> selectedHexes, int myIndex, int row, int column, int rows, int columns)
     {
         HexPlain = Resources.Load<Sprite>("SpriteHexPlain");
         HexFront = Resources.Load<Sprite>("SpriteHexFront");
+        HexLeft = Resources.Load<Sprite>("SpriteHexLeft");
+        HexRight = Resources.Load<Sprite>("SpriteHexRight");
         try
         {
             HexDirection hexDirection = GetHexRenderDirection(selectedHexes, myIndex, row, column, rows, columns);
@@ -28,24 +28,24 @@ public class LogicHex : MonoBehaviour
         }
     }
 
-
     private void RenderHexBase(HexDirection hexRenderDirection)
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        spriteRenderer.sprite = HexPlain;
+        spriteRendererPlain = GetComponent<SpriteRenderer>();
+        spriteRendererPlain.sprite = HexPlain;
 
         //renders sides of the hex depending on adjacent hexes position
         if (hexRenderDirection.front)
         {
-            spriteRenderer.sprite = HexFront;
+            spriteRendererLeft = GetComponent<SpriteRenderer>();
+            spriteRendererLeft.sprite = HexFront;
         }
-        if(hexRenderDirection.left)
+        if (hexRenderDirection.left)
         {
-            spriteRenderer.sprite = HexLeft;
+            spriteRendererLeft.sprite = HexLeft;
         }
         if (hexRenderDirection.right)
         {
-            spriteRenderer.sprite = HexRight;
+            spriteRendererLeft.sprite = HexRight;
         }
     }
 
@@ -56,7 +56,7 @@ public class LogicHex : MonoBehaviour
         // Gets the index below
         int indexBelow = myIndex - 1;
         // Check if the calculated index is within the bounds of the list and if the bool value at that index is true
-        if (!selectedHexes[indexBelow])
+        if (indexBelow > 0 && !selectedHexes[indexBelow])
         {
             hexDirection.front = true;
         }
