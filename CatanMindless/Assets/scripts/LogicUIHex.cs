@@ -7,10 +7,17 @@ public class LogicUIHex : MonoBehaviour
     public Sprite GreyHexUI;
     public Sprite GreenHexUI;
     private SpriteRenderer spriteRenderer;
-    public int row { get; set; }
-    public int collumn { get; set; }
-    public bool Selected = false;
-    
+
+    #region Hex Properties
+
+    public int Row { get; set; }
+    public int Collumn { get; set; }
+    public bool Selected { get; set; } = false;
+    public string Sprite { get; set; }
+    public int myIndex { get; set; }
+
+    #endregion
+
     // Start is called before the first frame update
     void Start()
     {

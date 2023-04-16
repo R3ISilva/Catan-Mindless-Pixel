@@ -20,7 +20,7 @@ public class HexSpawner : MonoBehaviour
     
     float hexHeight = .5f;
     float hexWidth = .64f;
-    void SpawnDuplicate(List<bool> selectedHexes, int rows, int columns)
+    void SpawnDuplicate(List<LogicUIHex> hexPropertiesList, int rows, int columns)
     {
         Vector2 hexSpawnDuplicateLocation = transform.position;
         for (int row = 0; row < rows; row++)
@@ -28,13 +28,21 @@ public class HexSpawner : MonoBehaviour
             
             for (int column = 0; column < columns; column++)
             {
-                int x = row * columns + column;
-                if (selectedHexes[x])
+                int hexIndex = row * columns + column;
+                LogicUIHex hexProperties = hexPropertiesList[hexIndex];
+
+                if (hexProperties.Selected)
                 {
+                    //Setting Properties
+                    hexProperties.myIndex = hexIndex;
+                    hexProperties.Sprite = "HexBase";
+
+                    //spawning
                     GameObject newHex = Instantiate(HexBase, hexSpawnDuplicateLocation, transform.rotation);
-                    newHex.GetComponent<LogicHex>().ConstructHex(selectedHexes, x, row, column, rows, columns);
+                    newHex.GetComponent<LogicHex>().ConstructHex(hexProperties, rows, columns);
                 }
 
+                //move to the next spot in grid
                 hexSpawnDuplicateLocation += new Vector2(0, hexHeight);
             }
 

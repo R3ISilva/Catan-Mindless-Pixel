@@ -6,7 +6,7 @@ using UnityEngine.Networking.Match;
 public class HexUISpawner : MonoBehaviour
 {
     public GameObject HexUI;
-    public List<bool> selectedHexes;
+    public List<LogicUIHex> hexProperties;
     private List<GameObject> spawnedHexUIs = new List<GameObject>();
     public int rows;
     public int columns;
@@ -29,16 +29,24 @@ public class HexUISpawner : MonoBehaviour
     {
         Vector2 hexUISpawnerLocation = transform.position;
         Vector2 hexUISpawnerInicialLocation = transform.position;
-        for (int i = 0; i < rows; i++)
+        for (int row = 0; row < rows; row++)
         {
-            for (int j = 0; j < columns; j++)
+            for (int column = 0; column < columns; column++)
             {
                 GameObject newHexUI = Instantiate(HexUI, hexUISpawnerLocation, transform.rotation);
                 spawnedHexUIs.Add(newHexUI);
+
+                LogicUIHex newHexUIProperties = newHexUI.GetComponent<LogicUIHex>();
+
+                //SetHexProperties
+                newHexUIProperties.Row = row;
+                newHexUIProperties.Collumn = column; 
+
+
                 hexUISpawnerLocation += new Vector2(0, .7f); // .7f valor da altura
             }
             
-            if (i % 2 == 0)
+            if (row % 2 == 0)
             {
                 hexUISpawnerLocation += new Vector2(.6f, .35f - (.7f * columns));
             }
@@ -49,16 +57,16 @@ public class HexUISpawner : MonoBehaviour
         }
     }
 
-    public List <bool> Retrieve()
+    public List<LogicUIHex> Retrieve()
     {
-        selectedHexes = new List<bool>();
+        hexProperties = new List<LogicUIHex>();
 
         foreach (GameObject hexUI in spawnedHexUIs)
         {
-            selectedHexes.Add(hexUI.GetComponent<LogicUIHex>().Selected);
+            hexProperties.Add(hexUI.GetComponent<LogicUIHex>());
         }
 
-        return selectedHexes;
+        return hexProperties;
     }
 
    

@@ -2,25 +2,35 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static LogicHex;
 
 public class LogicHex : MonoBehaviour
 {
-    public Sprite HexPlain,HexFront, HexRight, HexLeft;
+    public Sprite HexBase;
+    public LogicHex myHexProperties;
 
+    #region Hex Properties
 
-    private SpriteRenderer spriteRendererPlain, spriteRendererFront, spriteRendererRight, spriteRendererLeft;
+    public int Row { get; set; }
+    public int Collumn { get; set; }
+    public bool Selected { get; set; } = false;
+    public string Sprite { get; set; }
+    public int myIndex { get; set; }
+
+    #endregion
+
+    private SpriteRenderer spriteRendererHexBase;
    
     // Called when spawned
-    public void ConstructHex(List<bool> selectedHexes, int myIndex, int row, int column, int rows, int columns)
-    {
-        HexPlain = Resources.Load<Sprite>("SpriteHexPlain");
-        HexFront = Resources.Load<Sprite>("SpriteHexFront");
-        HexLeft = Resources.Load<Sprite>("SpriteHexLeft");
-        HexRight = Resources.Load<Sprite>("SpriteHexRight");
+    public void ConstructHex(LogicUIHex hexProperties, int rows, int columns)
+    {        
+        myHexProperties = ConvertLogicUIHexToLogicHex(hexProperties);
+
         try
         {
-            HexDirection hexDirection = GetHexRenderDirection(selectedHexes, myIndex, row, column, rows, columns);
-            RenderHexBase(hexDirection);
+            string sortingLayer = "HexBaseLayer"; //manual input
+
+            RenderHexBase(GetRenderLayer(columns), sortingLayer);
         }
         catch (UnityEngine.UnityException ex)
         {
@@ -28,47 +38,34 @@ public class LogicHex : MonoBehaviour
         }
     }
 
-    private void RenderHexBase(HexDirection hexRenderDirection)
+    private int GetRenderLayer(int columns)
     {
-        spriteRendererPlain = GetComponent<SpriteRenderer>();
-        spriteRendererPlain.sprite = HexPlain;
+        if(myHexProperties.Row % 2 == 0)
+        {
+            return (columns - myHexProperties.Collumn) * 2;
+        }
 
-        //renders sides of the hex depending on adjacent hexes position
-        if (hexRenderDirection.front)
-        {
-            spriteRendererLeft = GetComponent<SpriteRenderer>();
-            spriteRendererLeft.sprite = HexFront;
-        }
-        if (hexRenderDirection.left)
-        {
-            spriteRendererLeft.sprite = HexLeft;
-        }
-        if (hexRenderDirection.right)
-        {
-            spriteRendererLeft.sprite = HexRight;
-        }
+        return (columns - myHexProperties.Collumn) * 2 - 1;  
     }
 
-    private HexDirection GetHexRenderDirection(List<bool> selectedHexes, int myIndex, int row, int column, int rows, int columns)
+    private void RenderHexBase(int RenderLayer, string sortingLayer)
     {
-        HexDirection hexDirection = new HexDirection();
+        HexBase = Resources.Load<Sprite>(myHexProperties.Sprite);
+        spriteRendererHexBase = GetComponent<SpriteRenderer>();
+        spriteRendererHexBase.sprite = HexBase;
 
-        // Gets the index below
-        int indexBelow = myIndex - 1;
-        // Check if the calculated index is within the bounds of the list and if the bool value at that index is true
-        if (indexBelow > 0 && !selectedHexes[indexBelow])
-        {
-            hexDirection.front = true;
-        }
-
-        return hexDirection;
+        spriteRendererHexBase.sortingLayerName = sortingLayer; //render layer
+        spriteRendererHexBase.sortingOrder = RenderLayer; // render position inside layer (layers in layers)
     }
 
-    public class HexDirection
+    public LogicHex ConvertLogicUIHexToLogicHex(LogicUIHex logicUIHex)
     {
-        public bool front { get; set; } = false;
-        public bool left { get; set; } = false;
-        public bool right { get; set; } = false;
-    }
 
+
+        //Passar logicuihex para logichex campo a campo
+
+        LogicHex newLogicHex;
+
+
+    }
 }
