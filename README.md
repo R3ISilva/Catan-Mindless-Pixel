@@ -2,9 +2,12 @@
 
 ## Prefabs Structure
 * Parent = Empty Object (attach controller/logic)
-  * Childs = Graphics
+  * Child = Graphics
+   * Sprites
   
-## Input Script
+## Input Script 
+We use a package - "Input System" (see CodeMonkey 4min video)
+
 We use a Input Script to handle all input, ex:
 
 *We would call this function from the player script, and set it like this:*
