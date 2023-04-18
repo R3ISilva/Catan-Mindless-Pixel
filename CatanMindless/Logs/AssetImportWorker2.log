@@ -16,11 +16,11 @@ COMMAND LINE ARGUMENTS:
 -batchMode
 -noUpm
 -name
-AssetImportWorker1
+AssetImportWorker2
 -projectPath
 /Users/joaorsilva/deps/Catan-Mindless-Pixel/CatanMindless
 -logFile
-Logs/AssetImportWorker1.log
+Logs/AssetImportWorker2.log
 -srvPort
 62749
 Successfully changed project path to: /Users/joaorsilva/deps/Catan-Mindless-Pixel/CatanMindless
@@ -54,11 +54,11 @@ Successfully changed project path to: /Users/joaorsilva/deps/Catan-Mindless-Pixe
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Player connection [8433294144] Host "[IP] 192.168.1.6 [Port] 0 [Flags] 2 [Guid] 3881213252 [EditorId] 3881213252 [Version] 1048832 [Id] OSXEditor(0,Joaos-MacBook-Air.local) [Debug] 1 [PackageName] OSXEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+Player connection [8433294144] Host "[IP] 192.168.1.6 [Port] 0 [Flags] 2 [Guid] 2331894496 [EditorId] 2331894496 [Version] 1048832 [Id] OSXEditor(0,Joaos-MacBook-Air.local) [Debug] 1 [PackageName] OSXEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
 
-Player connection [8433294144] Host "[IP] 192.168.1.6 [Port] 0 [Flags] 2 [Guid] 3881213252 [EditorId] 3881213252 [Version] 1048832 [Id] OSXEditor(0,Joaos-MacBook-Air.local) [Debug] 1 [PackageName] OSXEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+Player connection [8433294144] Host "[IP] 192.168.1.6 [Port] 0 [Flags] 2 [Guid] 2331894496 [EditorId] 2331894496 [Version] 1048832 [Id] OSXEditor(0,Joaos-MacBook-Air.local) [Debug] 1 [PackageName] OSXEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
 
-Refreshing native plugins compatible for Editor in 94.24 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 94.23 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2021.3.22f1 (b6c551784ba3)
 [Subsystems] Discovering subsystems at path /Applications/Unity/Hub/Editor/2021.3.22f1/Unity.app/Contents/Resources/UnitySubsystems
@@ -73,15 +73,15 @@ Initialize mono
 Mono path[0] = '/Applications/Unity/Hub/Editor/2021.3.22f1/Unity.app/Contents/Managed'
 Mono path[1] = '/Applications/Unity/Hub/Editor/2021.3.22f1/Unity.app/Contents/MonoBleedingEdge/lib/mono/unityjit-macos'
 Mono config path = '/Applications/Unity/Hub/Editor/2021.3.22f1/Unity.app/Contents/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56173
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56175
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: /Applications/Unity/Hub/Editor/2021.3.22f1/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
 Register platform support module: /Applications/Unity/Hub/Editor/2021.3.22f1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll
-Registered in 0.001572 seconds.
+Registered in 0.001643 seconds.
 Native extension for OSXStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 71.51 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 71.53 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
 - Completed reload, in  0.481 seconds
@@ -96,7 +96,7 @@ Domain Reload Profiling:
 		EndReloadAssembly (332ms)
 			LoadAssemblies (90ms)
 			RebuildTransferFunctionScriptingTraits (1ms)
-			SetupTypeCache (84ms)
+			SetupTypeCache (83ms)
 			ReleaseScriptCaches (0ms)
 			RebuildScriptCaches (22ms)
 			SetupLoadedEditorAssemblies (188ms)
@@ -113,38 +113,38 @@ Domain Reload Profiling:
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.006222 seconds.
+Registered in 0.006183 seconds.
 Begin MonoManager ReloadAssembly
 Symbol file LoadedFromMemory doesn't match image /Users/joaorsilva/deps/Catan-Mindless-Pixel/CatanMindless/Library/PackageCache/com.unity.visualscripting@1.8.0/Editor/VisualScripting.Core/Dependencies/YamlDotNet/Unity.VisualScripting.YamlDotNet.dll
 Symbol file LoadedFromMemory doesn't match image /Users/joaorsilva/deps/Catan-Mindless-Pixel/CatanMindless/Library/PackageCache/com.unity.visualscripting@1.8.0/Editor/VisualScripting.Core/Dependencies/DotNetZip/Unity.VisualScripting.IonicZip.dll
 Native extension for OSXStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 71.98 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 71.42 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.738 seconds
+- Completed reload, in  0.727 seconds
 Domain Reload Profiling:
-	ReloadAssembly (739ms)
-		BeginReloadAssembly (70ms)
+	ReloadAssembly (728ms)
+		BeginReloadAssembly (82ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (3ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (19ms)
-		EndReloadAssembly (602ms)
-			LoadAssemblies (73ms)
+			CreateAndSetChildDomain (21ms)
+		EndReloadAssembly (585ms)
+			LoadAssemblies (66ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
 			SetupTypeCache (162ms)
 			ReleaseScriptCaches (1ms)
 			RebuildScriptCaches (39ms)
-			SetupLoadedEditorAssemblies (301ms)
+			SetupLoadedEditorAssemblies (300ms)
 				LogAssemblyErrors (0ms)
 				InitializePlatformSupportModulesInManaged (2ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (72ms)
+				RefreshPlugins (71ms)
 				BeforeProcessingInitializeOnLoad (59ms)
 				ProcessInitializeOnLoadAttributes (145ms)
-				ProcessInitializeOnLoadMethodAttributes (23ms)
+				ProcessInitializeOnLoadMethodAttributes (22ms)
 				AfterProcessingInitializeOnLoad (1ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
@@ -154,12 +154,12 @@ Platform modules already initialized, skipping
 Worker process is ready to serve import requests
 Launching external process: /Applications/Unity/Hub/Editor/2021.3.22f1/Unity.app/Contents/Tools/UnityShaderCompiler
 Launched and connected shader compiler UnityShaderCompiler after 0.21 seconds
-Refreshing native plugins compatible for Editor in 0.46 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 0.47 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 3738 Unused Serialized files (Serialized files now loaded: 0)
 Unloading 35 unused Assets / (40.4 KB). Loaded Objects now: 4197.
 Memory consumption went from 136.8 MB to 136.7 MB.
-Total: 4.108542 ms (FindLiveObjects: 0.238292 ms CreateObjectMapping: 0.064875 ms MarkObjects: 3.636042 ms  DeleteObjects: 0.168625 ms)
+Total: 3.463209 ms (FindLiveObjects: 0.211750 ms CreateObjectMapping: 0.063583 ms MarkObjects: 3.094000 ms  DeleteObjects: 0.093042 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
@@ -173,10 +173,13 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 62710.800562 seconds.
-  path: Assets/PreFabs/HexSpawner.prefab
-  artifactKey: Guid(03c791887e8390444b6c552965979621) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PreFabs/HexSpawner.prefab using Guid(03c791887e8390444b6c552965979621) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'abd59bbd1ab0e5bdba03e6b0149f48aa') in 0.128741 seconds 
-Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
-AssetImportWorker is now disconnected from the server
-Process exiting
+  Time since last request: 62710.802306 seconds.
+  path: Assets/PreFabs/HexUISpawner.prefab
+  artifactKey: Guid(fea21cc92f1434f4e83f8c537632fbf9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PreFabs/HexUISpawner.prefab using Guid(fea21cc92f1434f4e83f8c537632fbf9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1c63dd30ad98ab509ac2a8c1589d0d1f') in 0.127859 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000081 seconds.
+  path: Assets/PreFabs/PreFabHex.prefab
+  artifactKey: Guid(c95de3cea5192b247b475c6077c65150) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PreFabs/PreFabHex.prefab using Guid(c95de3cea5192b247b475c6077c65150) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e2a96706a078489f61f45c080e40a78d') in 0.003163 seconds 

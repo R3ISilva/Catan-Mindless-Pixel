@@ -2,70 +2,65 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static LogicHex;
 
-public class LogicHex : MonoBehaviour
+namespace LogicHex
 {
-    public Sprite HexBase;
-    public LogicHex myHexProperties;
-
-    #region Hex Properties
-
-    public int Row { get; set; }
-    public int Collumn { get; set; }
-    public bool Selected { get; set; } = false;
-    public string Sprite { get; set; }
-    public int myIndex { get; set; }
-
-    #endregion
-
-    private SpriteRenderer spriteRendererHexBase;
-   
-    // Called when spawned
-    public void ConstructHex(LogicUIHex hexProperties, int rows, int columns)
-    {        
-        myHexProperties = ConvertLogicUIHexToLogicHex(hexProperties);
-
-        try
-        {
-            string sortingLayer = "HexBaseLayer"; //manual input
-
-            RenderHexBase(GetRenderLayer(columns), sortingLayer);
-        }
-        catch (UnityEngine.UnityException ex)
-        {
-            Debug.Log("Error Rendering Hex" + ex.Message);
-        }
-    }
-
-    private int GetRenderLayer(int columns)
+    public class LogicHex : MonoBehaviour
     {
-        if(myHexProperties.Row % 2 == 0)
+        public Sprite HexBase;
+        public HexProperties myHexProperties;
+
+        #region Hex Properties
+        public class HexProperties
         {
-            return (columns - myHexProperties.Collumn) * 2;
+            public int Row { get; set; }
+            public int Collumn { get; set; }
+            public bool Selected { get; set; } = false;
+            public string Sprite { get; set; }
+            public int myIndex { get; set; }
         }
 
-        return (columns - myHexProperties.Collumn) * 2 - 1;  
-    }
+        #endregion
 
-    private void RenderHexBase(int RenderLayer, string sortingLayer)
-    {
-        HexBase = Resources.Load<Sprite>(myHexProperties.Sprite);
-        spriteRendererHexBase = GetComponent<SpriteRenderer>();
-        spriteRendererHexBase.sprite = HexBase;
+        private SpriteRenderer spriteRendererHexBase;
 
-        spriteRendererHexBase.sortingLayerName = sortingLayer; //render layer
-        spriteRendererHexBase.sortingOrder = RenderLayer; // render position inside layer (layers in layers)
-    }
+        // Called when spawned
+        public void ConstructHex(LogicUIHex hexProperties, int rows, int columns)
+        {
+            //myHexProperties = ConvertLogicUIHexToLogicHex(hexProperties);
 
-    public LogicHex ConvertLogicUIHexToLogicHex(LogicUIHex logicUIHex)
-    {
+            try
+            {
+                string sortingLayer = "HexBaseLayer"; //manual input
 
+                RenderHexBase(GetRenderLayer(columns), sortingLayer);
+            }
+            catch (UnityEngine.UnityException ex)
+            {
+                Debug.Log("Error Rendering Hex" + ex.Message);
+            }
+        }
 
-        //Passar logicuihex para logichex campo a campo
+        private int GetRenderLayer(int columns)
+        {
+            if (myHexProperties.Row % 2 == 0)
+            {
+                return (columns - myHexProperties.Collumn) * 2;
+            }
 
-        LogicHex newLogicHex;
+            return (columns - myHexProperties.Collumn) * 2 - 1;
+        }
 
+        private void RenderHexBase(int RenderLayer, string sortingLayer)
+        {
+            HexBase = Resources.Load<Sprite>(myHexProperties.Sprite);
+            spriteRendererHexBase = GetComponent<SpriteRenderer>();
+            spriteRendererHexBase.sprite = HexBase;
+
+            spriteRendererHexBase.sortingLayerName = sortingLayer; //render layer
+            spriteRendererHexBase.sortingOrder = RenderLayer; // render position inside layer (layers in layers)
+        }
 
     }
 }
+

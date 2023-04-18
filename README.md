@@ -2,8 +2,8 @@
 
 ## Prefabs Structure
 * Parent = Empty Object (attach controller/logic)
-  * Child = Graphics
-   * Sprites
+  * Visual Component
+  *
   
 ## Input Script 
 We use a package - "Input System" (see CodeMonkey 4min video)
@@ -20,6 +20,14 @@ We use a Input Script to handle all input, ex:
 * Variables : playerMovementNormalized;
 * Constants: MAXPLAYERMOVEMENT;
 * Scripts = Same name as the Prefab;
+
+## Miscelaneous / Tips
+
+* Use C#Events
+* Dont use values inside functions, always initialize vars (dont use magic numbers)
+
+
+//See C# Generics
 
 
 

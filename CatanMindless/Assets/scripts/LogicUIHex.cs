@@ -7,21 +7,24 @@ public class LogicUIHex : MonoBehaviour
     public Sprite GreyHexUI;
     public Sprite GreenHexUI;
     private SpriteRenderer spriteRenderer;
+    public HexProperties myHexProperties;
 
     #region Hex Properties
-
-    public int Row { get; set; }
-    public int Collumn { get; set; }
-    public bool Selected { get; set; } = false;
-    public string Sprite { get; set; }
-    public int myIndex { get; set; }
+    public class HexProperties
+    {
+        public int Row { get; set; }
+        public int Collumn { get; set; }
+        public bool Selected { get; set; } = false;
+        public string Sprite { get; set; }
+        public int myIndex { get; set; }
+    }
 
     #endregion
 
     // Start is called before the first frame update
     void Start()
     {
-        RenderHexBase(Selected);
+        RenderHexBase(myHexProperties.Selected);
     }
 
     // Update is called once per frame
@@ -32,8 +35,8 @@ public class LogicUIHex : MonoBehaviour
 
     void OnMouseDown()
     {
-        Selected = !Selected;
-        RenderHexBase(Selected);
+        myHexProperties.Selected = !myHexProperties.Selected;
+        RenderHexBase(myHexProperties.Selected);
     }
 
     private void RenderHexBase(bool Selected)
